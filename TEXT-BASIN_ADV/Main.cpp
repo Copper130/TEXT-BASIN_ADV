@@ -48,9 +48,9 @@ int main(){
 		
 		int timeCode = 1000;
 		int code_guess = 12;
-		while (code_guess != timeCode); {
+		 do {
 			int code_guess = 6000;
-			std::cout << "Enter the 4-digit code): ";
+			std::cout << "Enter the 4-digit code: ";
 			cin >> code_guess;
 			
 		// Get the current time
@@ -62,13 +62,13 @@ int main(){
 
 		// Combine into HHMM format (e.g., 1437 for 2:37 PM)
 		int timeCode = hour * 100 + minute;
-		//int code_guess;
+		//std::cout << "Debug: The correct code is " << timeCode << std::endl;
 		
 			
-			if (code_guess != timeCode) {
-				std::cout << "Incorrect code. Try again.\n";
+			if (code_guess == timeCode) {
+				break;
 			}
-		}
+		}while (code_guess != timeCode);
 		std::cout << "The lock beeps and the door slides open, you enter the cockpit and find the controls of the ship. Suddenly, an alarm goes off indicating that the ship's systems are failing, the ship was constructed to be operated by a team of people 24/7 due to the lack of people operating and upkeeping systems they are failing.\n\n";
 	}
 
