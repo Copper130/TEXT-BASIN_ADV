@@ -54,7 +54,7 @@ int typingspeed = 50; //Global variable for typing speed
 int main(){
 	string Name;
 	std::cout << "Hello welcome to Venessa, a Text based adventure game! \n Please enter your name User." << std::endl;
-	cin >> Name;
+	getline(cin,Name);
 	cls();
 	TypeOut("Welcome " + Name + ", to the world of Venessa! \n\n", 20);
 	
