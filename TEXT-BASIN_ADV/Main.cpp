@@ -54,14 +54,17 @@ int typingspeed = 50; //Global variable for typing speed
 int main(){
 	string Name;
 	std::cout << "Hello welcome to Venessa, a Text based adventure game! \n Please enter your name User." << std::endl;
+	
 	getline(cin,Name);
+
 	cls();
 	TypeOut("Welcome " + Name + ", to the world of Venessa! \n\n", 20);
 	
 	Sleep(1000); //Allow User to read welcome message
 
-	TypeOut("Your story starts as you awake with a splitting headache and little memory. As you look around you find yourself on a spaceship with dim lighting and an erie silence, as you look around you spot two diffrent hallways. The first appares to have a medical sign pointing to it, The other appares to be the direction to the cockpit of the ship\n\n\n", typingspeed);
-	
+	TypeOut("Your story starts as you awake with a splitting headache and little memory. As you look around you find yourself on a spaceship with dim lighting and an erie silence, as you look around you spot two diffrent hallways. The first appares to have a medical sign pointing to it, The other appares to be the direction to the cockpit of the ship\n\n", typingspeed);
+	cout << "Press Enter to Begain\n";
+
 	int first_choice = GetChoice("Which hallway do you choose? \n 1. Medical Bay \n 2. Cockpit", 2);
 	cls();
 
