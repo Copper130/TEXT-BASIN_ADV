@@ -52,6 +52,7 @@ void TypeOut(const std::string& Text, int delayMs = 50) {
 
 int typingspeed = 50; //Global variable for typing speed
 int main(){
+	
 	string Name;
 	std::cout << "Hello welcome to Venessa, a Text based adventure game! \n Please enter your name User." << std::endl;
 	
@@ -110,9 +111,45 @@ int main(){
 		TypeOut("The lock lets out a buzzing sound and a faint red light. Try again.\n", 40);
 	}while (code_guess != timeCode);
 	TypeOut("The lock beeps and the door slides open, you enter the cockpit and find the controls of the ship. Suddenly, an alarm goes off indicating that the ship's systems are failing, the ship was constructed to be operated by a team of people 24/7 due to the lack of people operating and upkeeping systems they are failing!\n\n", typingspeed);
+	Sleep(1000);
+	cls();
+	for (int i = 8; i > 0; i--) {
+		system("color 4");//Set text color to red
+		TypeOut("You see a planet getting closer.\n", 3);
+		TypeOut("Impact in " + to_string(i) + " seconds!\n", 3);
+	}
+	cls();
+	int IncreaseAmt = 1;
+	int fontSize = 16;
+	CONSOLE_FONT_INFOEX cfi;  // declare once
+	cfi.cbSize = sizeof(cfi); // initialize
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); // Declare console handle here so it's in scope for everything below
+	for (int i = 0; i < 30; i++) {
+		system("color 7");//Reset to default color
+		TypeOut("CRASH!\n", 10);
+		system("color 4");//Set text color to red
+		cout << "CRASH!\n";
+		
+		
+		
+		/* trying yo make the damn thing get bigger each loop
+		// get current font info
+		//cfi.cbSize = sizeof(cfi);
+		GetCurrentConsoleFontEx(hConsole, FALSE, &cfi);
 
-	std::cout << "To be continued...\n";
+		// change size
+		cfi.dwFontSize.X = 0;            // width auto
+		cfi.dwFontSize.Y = fontSize;     // height
+		SetCurrentConsoleFontEx(hConsole, FALSE, &cfi);
 
-	return 0; 
+		//cout << "Font size: " << fontSize << endl;
+
+		fontSize += IncreaseAmt;
+		//Sleep(100);
+		//this_thread::sleep_for(chrono::milliseconds(100));
+		*/
+	}
+
+	return 69; 
 
 }
