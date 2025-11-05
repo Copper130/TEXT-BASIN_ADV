@@ -149,6 +149,65 @@ int main(){
 		//this_thread::sleep_for(chrono::milliseconds(100));
 		*/
 	}
+	Sleep(1500);
+	system ("color 7");//Reset to default color
+	cls();
+
+	//HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	// Make text bright cyan for the planet
+	SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+
+	// Simple ASCII planet frames (rotating illusion)
+	const string frames[] = {
+		R"(
+         .------.
+       .'        `.
+      /   o    o   \
+     |      ()      |
+      \    ----    /
+       `.        .'
+         `------'
+        )",
+		R"(
+         .------.
+       .'        `.
+      /   o    o   \
+     |    ----()    |
+      \      o     /
+       `.        .'
+         `------'
+        )",
+		R"(
+         .------.
+       .'        `.
+      /   ()----   \
+     |   o    o     |
+      \    o       /
+       `.        .'
+         `------'
+        )",
+		R"(
+         .------.
+       .'        `.
+      /   o      o \
+     |   ()----     |
+      \   o    o   /
+       `.        .'
+         `------'
+        )"
+	};
+
+	int frameCount = sizeof(frames) / sizeof(frames[0]);
+	int i = 0;
+	while (true) {
+		cls();
+		std::cout << "You have crash landed on an unknown planet...\n\n";
+		std::cout << frames[i] <<endl;
+		std::cout << "You are stuck." << endl;
+		this_thread::sleep_for(chrono::milliseconds(200));
+		i = (i + 1) % frameCount;
+	}
 
 	return 69; 
 
