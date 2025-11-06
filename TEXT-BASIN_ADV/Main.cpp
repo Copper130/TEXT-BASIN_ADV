@@ -64,7 +64,7 @@ int main(){
 	Sleep(1000); //Allow User to read welcome message
 
 	TypeOut("Your story starts as you awake with a splitting headache and little memory. As you look around you find yourself on a spaceship with dim lighting and an erie silence, as you look around you spot two diffrent hallways. The first appares to have a medical sign pointing to it, The other appares to be the direction to the cockpit of the ship\n\n", typingspeed);
-	cout << "Press Enter to Begain\n";
+	cout << "Press Enter to Begin\n";
 
 	int first_choice = GetChoice("Which hallway do you choose? \n 1. Medical Bay \n 2. Cockpit", 2);
 	cls();
@@ -205,7 +205,7 @@ int main(){
 		std::cout << "You have crash landed on an unknown planet...\n\n";
 		std::cout << frames[i] <<endl;
 		std::cout << "You are stuck." << endl;
-		this_thread::sleep_for(chrono::milliseconds(200));
+		//this_thread::sleep_for(chrono::milliseconds(200));
 		i = (i + 1) % frameCount;
 	}
 
