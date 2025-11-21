@@ -67,7 +67,7 @@ int GetChoice(string prompt, int number_of_choices) {
 
 string Name;
 
-int typingspeed = 1; //Global variable for typing speed
+int typingspeed = 40; //Global variable for typing speed
 int main() {
 
 
@@ -230,34 +230,92 @@ int main() {
 	cls();
 	system("color e0");
 	TypeOut("As you regain consciousness, you find yourself lying on the surface of an alien planet. The sky above is a strange hue, and unfamiliar flora surrounds you. Your ship lies in ruins nearby, smoke still rising from its wreckage. You realize that survival is your immediate concern.\n\n", 70);
-	Sleep(500);
-	TypeOut("What will you do next ? \n\n", 70);
+	Sleep(500);// used for dramatic effect
+	TypeOut("What will you do next? \n\n", 70); // Just making the next choice clear.
 
 
 	int after_wreck_choice = GetChoice(" 1. Explore the surroundings \n 2. Search the wreckage for supplies \n 3. Call for help using the ship's radio", 3);
 	//cout << after_wreck_choice; //for testing purposes only
+	
+	int supply_choice;// decared here to be used in the switch case later
+	int radio_choice; // decared here to be used in the switch case later
+	int explore_choice;// decared here to be used in the switch case later
+
 	switch (after_wreck_choice) {
 	
 	case 1:
 		// Explore the surroundings
 		TypeOut("You decide to explore the alien landscape, hoping to find resources or signs of life. As you venture further from the wreckage, you notice strange plants with bioluminescent properties and hear distant, unidentifiable sounds. The environment is both fascinating and intimidating, reminding you of the importance of caution in this unknown world.\n\n", typingspeed);
-		//Think of something to make this more interesting later
+		TypeOut("As you push deeper into the glowing forest, the air hums with a strange vibration. The plants pulse softly, almost like they're breathing. In the distance, you spot three things that immediately catch your attention:\n\n", typingspeed);
+
+		explore_choice = GetChoice(" 1. A pulsating plant that reacts when you step closer\n 2. Footprints in the dirt that definitely aren't yours\n 3. A narrow cave entrance blowing out warm air",3);
+
+		switch (explore_choice) {
+			case 1:
+				// Investigate the pulsating plant
+				TypeOut("You approach the pulsating plant cautiously. As you get closer, it reacts to your presence, its glow intensifying. Suddenly, a small, luminescent creature emerges from behind it, staring at you it almost feels as if it can see inside your mind.\n\n", typingspeed);
+				Sleep(1000);
+				break;
+			case 2:
+				// Follow the footprints
+				TypeOut("You follow the strange footprints through the soft, glowing soil. They lead you to a super small alien structure, partially hidden among the glowing flora. The footprints stop abruptly—someone or something was here recently.\n\n", typingspeed);
+				Sleep(1000);
+				break;
+			case 3:
+				// Enter the cave
+				TypeOut("The cave entrance emits a warm, inviting air. As you step inside, your footsteps echo off the walls. Bioluminescent moss lights the way, and you notice strange markings etched into the stone. Something about this cave feels alive, almost watching you.\n\n", typingspeed);
+				Sleep(500);
+				TypeOut("you feel a sense of doom and instinctually turn to leave the cave. Finding the exit gone.\n\n", typingspeed);
+				Sleep(1000);
+				break;
+		}
+		
+		break;
 	case 2:
 		// Search the wreckage for supplies
 		TypeOut("You cautiously approach the wreckage of your ship, searching for any usable supplies that might aid in your survival. Amidst the twisted metal you see 3 essential items however a fire is quickly approching them and you only have time to grab one. \n\n", typingspeed);
 		
-		int supply_choice = GetChoice(" Which item do you choose to take? \n 1. A first aid kit \n 2. A multi-tool \n 3. A portable water purifier", 3);
+		supply_choice = GetChoice(" Which item do you choose to take? \n 1. A first aid kit \n 2. A multi-tool \n 3. A portable water purifier", 3);
+		break;
 	case 3:
 		// Call for help using the ship's radio
-		TypeOut("You decide to use the ship's radio to call for help, hoping that someone might be able to pick up your distress signal. You take the radio and find its got no power\n\n", typingspeed); // NEED TO ADD MORE JUST RAN OUTTA TIME. force a choice of some kind.
-	
+		TypeOut("You decide to use the ship's radio to call for help, hoping that someone might be able to pick up your distress signal. You take the radio and find its got no power\n\n", typingspeed);
+		TypeOut("You press the radio’s power switch again, but nothing happens. The device is completely dead—not even a flicker of light. The crash must have drained or destroyed its power source. If you want to call for help, you’ll need to find some way to bring it back to life.\n\n", typingspeed);
+
+		radio_choice = GetChoice(" 1. Search the wreckage for anything that could act as a battery\n 2. Try to repair the radio’s internal wiring using scrap tools\n 3. Attempt to build a crude power source from broken components", 3);
+		switch (radio_choice) {
+
+		case 1:
+		//Search the wreckage for anything that could act as a battery
+			TypeOut("You dig through the wreckage, tossing aside burnt panels and broken wiring. Eventually you find a half-melted emergency battery. It's damaged beyond functioning.\n\n", typingspeed);
+			Sleep(1000);
+			break;
+
+		case 2: 
+		//Try to repair the radio’s internal wiring using scrap tools
+			TypeOut("You crack open the radio casing and start rearranging the torn wires. Sparks jump once or twice, but after a few minutes it's clear the internal board is fried beyond simple repair.\n\n", typingspeed);
+			Sleep(1000);
+			break;
+
+		case 3: 
+		//Attempt to build a crude power source from broken components
+			TypeOut("You gather scraps of copper, wiring, and metal shards. With some patience you manage to jury-rig a tiny makeshift power cell. It's unstable and weak, but it produces a faint current. Not enough to broadcast the signal farther than 10 kilometers let alone another planet or ship.\n\n", typingspeed);
+			Sleep(1000);
+			break;
+
+		}
+
+		
+		break;
 	default:
 		cout << "this case should be impossible to fufill. If you did then congratulations you broke my code...\n\n";
 		//Blah just because I am sure Conner will manage it.
 		return 41;
 	}
-
-
+	Sleep(1500);
+	cls();
+	system("color 53"); //Set text color to purple and background blue if i recall correctly
+	TypeOut("alr thats all ive got for now thanks \n\n", typingspeed);
 	return 69; 
 
 }
