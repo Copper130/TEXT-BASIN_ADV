@@ -34,7 +34,7 @@ void TypeOut(const std::string& Text, int delayMs = 50) {
 	}
 
 }
-
+bool Crashed = false;
 // Function for displaying a choice and handling the choice the user makes fr
 int GetChoice(string prompt, int number_of_choices) {
 	int choice = -1;
@@ -50,10 +50,19 @@ int GetChoice(string prompt, int number_of_choices) {
 			std::string PlayerDOOM;
 			std::cin >> PlayerDOOM;
 			if (PlayerDOOM == "1" || PlayerDOOM == "one"|| PlayerDOOM == "One") {
-				cls();
-				system("color 56");
-				TypeOut("An astroid suddenly flies through the wall and vaporizes you for indecision. Game Over.\n\n", 25);
-				Sleep(5000);
+				
+					if (Crashed == false){
+					cls();
+					system("color 56");
+					TypeOut("An astroid suddenly flies through the wall and vaporizes you for indecision. Game Over.\n\n", 25);
+					Sleep(5000);
+					}
+					else {
+					cls();
+					system("color 56");
+					TypeOut("As you hesitate a huge fly trap grabs you from behind and goobles your buns. Game Over :p\n\n", 25);
+					Sleep(5000);
+					}
 				exit(80085);
 			}
 		}
@@ -67,7 +76,7 @@ int GetChoice(string prompt, int number_of_choices) {
 
 string Name;
 
-int typingspeed = 40; //Global variable for typing speed
+int typingspeed = 50; //Global variable for typing speed default is 50ms per character
 int main() {
 
 
@@ -125,7 +134,7 @@ int main() {
 			// Combine into HHMM format (e.g., 1437 for 2:37 PM)
 			int timeCode = hour * 100 + minute;
 		
-			if (code_guess == timeCode) {
+			if (code_guess == timeCode|| code_guess == (timeCode-1)) {
 				cls();
 				break;
 			}
@@ -169,7 +178,7 @@ int main() {
 	Sleep(1500);
 	system ("color 7");//Reset to default color
 	cls();
-
+	Crashed = true;// Set crashed to true to indicate the player has crashed
 	//HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	// Make text bright cyan for the planet
@@ -217,7 +226,7 @@ int main() {
 
 	int frameCount = sizeof(frames) / sizeof(frames[0]);
 	int CurrentFrame = 0;
-	int CrashDuration = 50; // Duration of crash animation in number of frames shown.
+	int CrashDuration = 15; // Duration of crash animation in number of frames shown.
 	while (CrashDuration >= 0) {
 		cls();
 		std::cout << "You have crash landed on an unknown planet...\n\n";
@@ -317,5 +326,5 @@ int main() {
 	system("color 53"); //Set text color to purple and background blue if i recall correctly
 	TypeOut("alr thats all ive got for now thanks \n\n", typingspeed);
 	return 69; 
-
+	 
 }
