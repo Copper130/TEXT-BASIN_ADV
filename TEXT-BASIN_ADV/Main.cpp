@@ -289,9 +289,9 @@ int main() {
 	case 3:
 		// Call for help using the ship's radio
 		TypeOut("You decide to use the ship's radio to call for help, hoping that someone might be able to pick up your distress signal. You take the radio and find its got no power\n\n", typingspeed);
-		TypeOut("You press the radio’s power switch again, but nothing happens. The device is completely dead—not even a flicker of light. The crash must have drained or destroyed its power source. If you want to call for help, you’ll need to find some way to bring it back to life.\n\n", typingspeed);
+		TypeOut("You press the radios power switch again, but nothing happens. The device is completely deadnot even a flicker of light. The crash must have drained or destroyed its power source. If you want to call for help, youll need to find some way to bring it back to life.\n\n", typingspeed);
 
-		radio_choice = GetChoice(" 1. Search the wreckage for anything that could act as a battery\n 2. Try to repair the radio’s internal wiring using scrap tools\n 3. Attempt to build a crude power source from broken components", 3);
+		radio_choice = GetChoice(" 1. Search the wreckage for anything that could act as a battery\n 2. Try to repair the radios internal wiring using scrap tools\n 3. Attempt to build a crude power source from broken components", 3);
 		switch (radio_choice) {
 
 		case 1:
@@ -308,10 +308,10 @@ int main() {
 
 		case 3: 
 		//Attempt to build a crude power source from broken components
-			TypeOut("You gather scraps of copper, wiring, and metal shards. With some patience you manage to jury-rig a tiny makeshift power cell. It's unstable and weak, but it produces a faint current. Not enough to broadcast the signal farther than 10 kilometers let alone another planet or ship.\n\n", typingspeed);
+			TypeOut("You gather scraps of copper, wiring, and metal shards. With some patience you manage to jerr	yrig a tiny makeshift power cell. It's unstable and weak, but it produces a faint current. Not enough to broadcast the signal farther than 10 kilometers let alone another planet or ship.\n\n", typingspeed);
 			Sleep(1000);
 			break;
-
+			 
 		}
 
 		
